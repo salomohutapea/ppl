@@ -3,19 +3,16 @@ package main
 import questions.Question
 
 fun main() {
-    Main()
+    val main = Main()
+    main.printListOfQuestions()
+    main.enterQuestionNo()
 }
 
 class Main(
     private val questions: ArrayList<Question> = QuestionsBank.questions
 ) {
 
-    init {
-        printListOfQuestions()
-        enterQuestionNo()
-    }
-
-    private fun printListOfQuestions() {
+    fun printListOfQuestions() {
         println("List of Questions: ")
 
         questions.forEachIndexed { i, q ->
@@ -23,7 +20,7 @@ class Main(
         }
     }
 
-    private fun enterQuestionNo() {
+    fun enterQuestionNo() {
         println("\nEnter question number or [x] to exit this program:")
 
         val questionNo: String = readLine()!!
@@ -31,7 +28,7 @@ class Main(
         validateQuestionNoInput(questionNo)
     }
 
-    private fun validateQuestionNoInput(questionNo: String) {
+    fun validateQuestionNoInput(questionNo: String) {
         if (questionNo == "x")
             return
 

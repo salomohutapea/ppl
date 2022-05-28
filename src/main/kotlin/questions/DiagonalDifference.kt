@@ -4,14 +4,13 @@ import kotlin.math.abs
 
 class DiagonalDifference(
     private var n: Int = -1,
-    private var arr: Array<Array<Int>> = arrayOf(),
-    private val questionImpl: Question = QuestionImpl()
-) : Question {
+    private var arr: Array<Array<Int>> = arrayOf()
+) : QuestionImpl() {
 
     override val questionName: String = "Diagonal Difference"
 
     override fun getInput() {
-        questionImpl.getInput()
+        super.getInput()
 
         if (n == -1 && arr.isEmpty()) {
             n = readLine()!!.trim().toInt()

@@ -1,14 +1,13 @@
 package questions
 
 class MinMaxSum(
-    private var arr: Array<Int> = arrayOf(),
-    private val questionImpl: Question = QuestionImpl()
-) : Question {
+    private var arr: Array<Int> = arrayOf()
+) : QuestionImpl() {
 
     override val questionName: String = "Min Max Sum"
 
     override fun getInput() {
-        questionImpl.getInput()
+        super.getInput()
         if (arr.isEmpty()) arr = readLine()!!.trimEnd().split(" ").map { it.toInt() }.toTypedArray()
     }
 

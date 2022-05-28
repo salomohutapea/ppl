@@ -2,7 +2,7 @@ package questions
 
 import com.google.gson.Gson
 
-class QuestionImpl : Question {
+open class QuestionImpl : Question {
 
     override val questionName: String = ""
 

@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 import kotlin.test.assertEquals
 
-class DiagonalDifferenceTest {
+internal class DiagonalDifferenceTest {
 
     companion object {
         @JvmStatic
@@ -35,7 +35,7 @@ class DiagonalDifferenceTest {
     @MethodSource
     fun calculate(n: Int, input: Array<Array<Int>>, expected: Int) {
         diagonalDifference = DiagonalDifference(n, input)
-        assertEquals(diagonalDifference.calculate(), expected)
+        assertEquals(expected, diagonalDifference.calculate())
     }
 
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import java.util.stream.Stream
 
-class MinMaxSumTest {
+internal class MinMaxSumTest {
 
     companion object {
         @JvmStatic
@@ -33,7 +33,7 @@ class MinMaxSumTest {
     @MethodSource
     fun calculate(input: Array<Int>, expected: String) {
         minMaxSum = MinMaxSum(input)
-        kotlin.test.assertEquals(minMaxSum.calculate(), expected)
+        kotlin.test.assertEquals(expected, minMaxSum.calculate())
     }
 
 }
