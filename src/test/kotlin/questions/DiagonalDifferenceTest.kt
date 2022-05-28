@@ -13,7 +13,8 @@ class DiagonalDifferenceTest {
         @JvmStatic
         fun calculate(): Stream<Arguments?>? {
             return Stream.of(
-                Arguments.of(3, arrayOf(arrayOf(11, 2, 4), arrayOf(4, 5, 6), arrayOf(10, 8, -12)), 15)
+                Arguments.of(3, arrayOf(arrayOf(11, 2, 4), arrayOf(4, 5, 6), arrayOf(10, 8, -12)), 15),
+                Arguments.of(3, arrayOf(arrayOf(1, 2, 3), arrayOf(4, 5, 6), arrayOf(9, 8, 9)), 2)
             )
         }
     }
