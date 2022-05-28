@@ -1,16 +1,19 @@
 package main
 
 import questions.Question
+import questions.QuestionsBank
 
 fun main() {
-    val main = Main()
-    main.printListOfQuestions()
-    main.enterQuestionNo()
+    Main().init()
 }
 
 class Main(
     private val questions: ArrayList<Question> = QuestionsBank.questions
 ) {
+    fun init() {
+        printListOfQuestions()
+        enterQuestionNo()
+    }
 
     fun printListOfQuestions() {
         println("List of Questions: ")

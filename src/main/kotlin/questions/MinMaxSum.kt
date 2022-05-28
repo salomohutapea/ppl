@@ -8,6 +8,7 @@ class MinMaxSum(
 
     override fun getInput() {
         super.getInput()
+
         if (arr.isEmpty()) arr = readLine()!!.trimEnd().split(" ").map { it.toInt() }.toTypedArray()
     }
 

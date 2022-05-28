@@ -1,8 +1,4 @@
-package main
-
-import questions.DiagonalDifference
-import questions.MinMaxSum
-import questions.Question
+package questions
 
 object QuestionsBank {
     var questions: ArrayList<Question> = arrayListOf()

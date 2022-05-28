@@ -8,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
 import questions.Question
+import questions.QuestionsBank
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 import java.util.stream.Stream
@@ -58,6 +59,8 @@ internal class MainTest {
     @ParameterizedTest
     @MethodSource
     fun printListOfQuestions(q: ArrayList<Question>, expected: String) {
+        assertEquals(QuestionsBank.questions, q)
+        
         main = Main(q)
         main.printListOfQuestions()
 
@@ -80,4 +83,5 @@ internal class MainTest {
                 .trim()
         )
     }
+
 }
