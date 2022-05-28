@@ -3,7 +3,9 @@ package questions
 import Questions
 import kotlin.math.abs
 
-class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<Int>> = arrayOf()) : Questions {
+class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<Int>> = arrayOf()) : Questions() {
+
+    override val questionName: String = "Diagonal Difference"
 
     override fun getInput() {
         super.getInput()
@@ -28,7 +30,4 @@ class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<I
         return abs((x))
     }
 
-    override fun printQuestionName(questionName: String) {
-        super.printQuestionName("Diagonal Difference")
-    }
 }

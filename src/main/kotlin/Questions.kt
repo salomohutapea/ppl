@@ -1,17 +1,18 @@
 import com.google.gson.Gson
 
-interface Questions {
-    fun getInput() {
+abstract class Questions {
+    abstract val questionName: String
+    open fun getInput() {
         println("Input :")
     }
 
-    fun calculate(): Any
+    abstract fun calculate(): Any
 
-    fun printQuestionName(questionName: String = "") {
-        println(questionName + "\n")
+    open fun printQuestionName() {
+        println("\n$questionName")
     }
 
-    fun printOutput() {
+    private fun printOutput() {
         println("\nOutput :")
         println(Gson().toJson(calculate()))
     }

@@ -1,5 +1,6 @@
 package questions
 
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -26,7 +27,7 @@ class DiagonalDifferenceTest {
 
     }
 
-    @BeforeEach
+    @AfterEach
     fun tearDown() {
     }
 
@@ -36,4 +37,5 @@ class DiagonalDifferenceTest {
         diagonalDifference = DiagonalDifference(n, input)
         assertEquals(diagonalDifference.calculate(), expected)
     }
+
 }

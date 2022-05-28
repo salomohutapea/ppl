@@ -1,12 +1,13 @@
 import questions.DiagonalDifference
+import questions.MinMaxSum
 
 class QuestionsBank {
-    var questions: ArrayList<() -> Unit> = arrayListOf()
+    var questions: ArrayList<Questions> = arrayListOf()
 
     init {
         questions = arrayListOf(
-            { DiagonalDifference().run() },
-            { DiagonalDifference().run() }
+            DiagonalDifference(),
+            MinMaxSum()
         )
     }
 }

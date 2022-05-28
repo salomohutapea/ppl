@@ -1,6 +1,16 @@
 fun main() {
 
-    val questionsBank = QuestionsBank()
+    val questions = QuestionsBank().questions
 
-    questionsBank.questions[0]()
+    println("List of Questions: ")
+
+    questions.forEachIndexed { i, q ->
+        println("[${i + 1}] ${q.questionName}")
+    }
+
+    println("\nEnter question no: ")
+
+    val questionNo: Int = readLine()!!.toInt()
+
+    questions[questionNo].run()
 }
