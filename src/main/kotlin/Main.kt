@@ -1,6 +1,6 @@
 fun main() {
 
-    val questions = QuestionsBank().questions
+    val questions = QuestionsBank.questions
 
     println("List of Questions: ")
 

@@ -1,7 +1,7 @@
 import questions.DiagonalDifference
 import questions.MinMaxSum
 
-class QuestionsBank {
+object QuestionsBank {
     var questions: ArrayList<Questions> = arrayListOf()
 
     init {
