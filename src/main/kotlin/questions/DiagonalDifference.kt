@@ -1,15 +1,24 @@
+package questions
+
+import Questions
 import kotlin.math.abs
 
-object DiagonalDifference : Questions {
-    override fun calculate(): Int {
-        val n = readLine()!!.trim().toInt()
+class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<Int>> = arrayOf()) : Questions {
 
-        val arr = Array(n) { Array(n) { 0 } }
+    override fun getInput() {
+        super.getInput()
 
-        for (i in 0 until n) {
-            arr[i] = readLine()!!.trimEnd().split(" ").map { it.toInt() }.toTypedArray()
+        if (n == -1 && arr.isEmpty()) {
+            n = readLine()!!.trim().toInt()
+            arr = Array(n) { Array(n) { 0 } }
+
+            for (i in 0 until n) {
+                arr[i] = readLine()!!.trimEnd().split(" ").map { it.toInt() }.toTypedArray()
+            }
         }
+    }
 
+    override fun calculate(): Int {
         var x = 0
 
         arr.forEachIndexed { i, z ->
@@ -19,7 +28,7 @@ object DiagonalDifference : Questions {
         return abs((x))
     }
 
-    override fun printQuestion(questionName: String) {
-        super.printQuestion("Diagonal Difference")
+    override fun printQuestionName(questionName: String) {
+        super.printQuestionName("Diagonal Difference")
     }
 }
