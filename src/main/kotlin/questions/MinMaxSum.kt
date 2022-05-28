@@ -9,7 +9,7 @@ class MinMaxSum(private var arr: Array<Int> = arrayOf()) : Questions() {
     override fun getInput() {
         super.getInput()
 
-        arr = readLine()!!.trimEnd().split(" ").map { it.toInt() }.toTypedArray()
+        if (arr.isEmpty()) arr = readLine()!!.trimEnd().split(" ").map { it.toInt() }.toTypedArray()
     }
 
     override fun calculate(): Any {
@@ -20,7 +20,7 @@ class MinMaxSum(private var arr: Array<Int> = arrayOf()) : Questions() {
             min += arr[i - 1]
             max += arr[i]
         }
-        return arrayOf(min, max)
+        return "$min $max"
     }
 
 }
