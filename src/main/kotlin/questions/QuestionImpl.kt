@@ -2,7 +2,8 @@ package questions
 
 import com.google.gson.Gson
 
-class QuestionImpl: Question {
+class QuestionImpl : Question {
+
     override val questionName: String = ""
 
     override fun getInput() {
@@ -23,4 +24,5 @@ class QuestionImpl: Question {
         getInput()
         printOutput()
     }
+
 }

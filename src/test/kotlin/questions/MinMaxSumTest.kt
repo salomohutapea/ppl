@@ -35,4 +35,5 @@ class MinMaxSumTest {
         minMaxSum = MinMaxSum(input)
         kotlin.test.assertEquals(minMaxSum.calculate(), expected)
     }
+
 }
