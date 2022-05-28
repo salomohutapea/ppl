@@ -3,7 +3,7 @@ import com.google.gson.Gson
 abstract class Questions {
     abstract val questionName: String
     open fun getInput() {
-        println("Input :")
+        println("\nInput :")
     }
 
     abstract fun calculate(): Any

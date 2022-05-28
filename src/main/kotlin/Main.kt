@@ -8,9 +8,17 @@ fun main() {
         println("[${i + 1}] ${q.questionName}")
     }
 
-    println("\nEnter question no: ")
 
-    val questionNo: Int = readLine()!!.toInt()
+    println("\nEnter question no, [x] to exit this program:")
 
-    questions[questionNo].run()
+    val questionNo: String = readLine()!!
+
+    if (questionNo == "x")
+        return
+
+    if (questionNo.toIntOrNull() != null)
+        questions[questionNo.toInt() - 1].run()
+    else {
+        println("\nPlease enter valid question number!\n")
+    }
 }
