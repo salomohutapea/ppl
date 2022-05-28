@@ -59,11 +59,10 @@ internal class MainTest {
     @ParameterizedTest
     @MethodSource
     fun printListOfQuestions(q: ArrayList<Question>, expected: String) {
-        assertEquals(QuestionsBank.questions, q)
-        
         main = Main(q)
         main.printListOfQuestions()
 
+        assertEquals(QuestionsBank.questions, main.questions)
         assertEquals(
             expected,
             outputStreamCaptor.toString()

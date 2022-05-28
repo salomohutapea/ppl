@@ -8,7 +8,7 @@ fun main() {
 }
 
 class Main(
-    private val questions: ArrayList<Question> = QuestionsBank.questions
+    val questions: ArrayList<Question> = QuestionsBank.questions
 ) {
     fun init() {
         printListOfQuestions()
@@ -23,7 +23,7 @@ class Main(
         }
     }
 
-    fun enterQuestionNo() {
+    private fun enterQuestionNo() {
         println("\nEnter question number or [x] to exit this program:")
 
         val questionNo: String = readLine()!!
