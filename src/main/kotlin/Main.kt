@@ -1,3 +1,6 @@
 fun main() {
-    QuestionsBank.questions[0]()
+
+    val questionsBank = QuestionsBank()
+
+    questionsBank.questions[0]()
 }

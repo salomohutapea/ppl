@@ -1,6 +1,6 @@
 import questions.DiagonalDifference
 
-object QuestionsBank {
+class QuestionsBank {
     var questions: ArrayList<() -> Unit> = arrayListOf()
 
     init {
