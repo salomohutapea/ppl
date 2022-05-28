@@ -1,3 +1,5 @@
+package questions
+
 import com.google.gson.Gson
 
 abstract class Question {

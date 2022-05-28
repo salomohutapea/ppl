@@ -1,10 +1,13 @@
+package main
+
+import questions.Question
+
 fun main() {
     Main()
 }
 
 class Main(
-    private val questions: ArrayList<Question> = QuestionsBank.questions,
-    private var questionNo: String = ""
+    private val questions: ArrayList<Question> = QuestionsBank.questions
 ) {
 
     init {
@@ -23,8 +26,12 @@ class Main(
     private fun enterQuestionNo() {
         println("\nEnter question number or [x] to exit this program:")
 
-        if (questionNo.isEmpty()) questionNo = readLine()!!
+        val questionNo: String = readLine()!!
 
+        validateQuestionNoInput(questionNo)
+    }
+
+    private fun validateQuestionNoInput(questionNo: String) {
         if (questionNo == "x")
             return
 

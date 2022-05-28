@@ -1,6 +1,5 @@
 package questions
 
-import Question
 import kotlin.math.abs
 
 class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<Int>> = arrayOf()) : Question() {
