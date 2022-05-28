@@ -1,27 +1,13 @@
 package questions
 
-import com.google.gson.Gson
+interface Question {
 
-abstract class Question {
-    abstract val questionName: String
-    open fun getInput() {
-        println("\nInput :")
-    }
+    val questionName: String
 
-    abstract fun calculate(): Any
+    fun getInput() {}
+    fun calculate(): Any = {}
+    fun printQuestionName() {}
+    fun printOutput() {}
+    fun run() {}
 
-    open fun printQuestionName() {
-        println("\n$questionName")
-    }
-
-    private fun printOutput() {
-        println("\nOutput :")
-        println(Gson().toJson(calculate()))
-    }
-
-    fun run() {
-        printQuestionName()
-        getInput()
-        printOutput()
-    }
 }

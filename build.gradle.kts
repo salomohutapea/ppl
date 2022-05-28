@@ -73,7 +73,7 @@ tasks.test {
 
 tasks.koverHtmlReport {
     isEnabled = true                        // false to disable report generation
-    htmlReportDir.set(layout.buildDirectory.dir("my-project-report/html-result"))
+    htmlReportDir.set(layout.buildDirectory.dir("testReport"))
 }
 
 

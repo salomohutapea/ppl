@@ -2,12 +2,16 @@ package questions
 
 import kotlin.math.abs
 
-class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<Int>> = arrayOf()) : Question() {
+class DiagonalDifference(
+    private var n: Int = -1,
+    private var arr: Array<Array<Int>> = arrayOf(),
+    private val questionImpl: Question = QuestionImpl()
+) : Question {
 
     override val questionName: String = "Diagonal Difference"
 
     override fun getInput() {
-        super.getInput()
+        questionImpl.getInput()
 
         if (n == -1 && arr.isEmpty()) {
             n = readLine()!!.trim().toInt()
