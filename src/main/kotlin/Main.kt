@@ -1,24 +1,37 @@
 fun main() {
+    Main()
+}
 
-    val questions = QuestionsBank.questions
+class Main(
+    private val questions: ArrayList<Questions> = QuestionsBank.questions,
+    private var questionNo: String = ""
+) {
 
-    println("List of Questions: ")
-
-    questions.forEachIndexed { i, q ->
-        println("[${i + 1}] ${q.questionName}")
+    init {
+        printListOfQuestions()
+        enterQuestionNo()
     }
 
+    private fun printListOfQuestions() {
+        println("List of Questions: ")
 
-    println("\nEnter question no, [x] to exit this program:")
+        questions.forEachIndexed { i, q ->
+            println("[${i + 1}] ${q.questionName}")
+        }
+    }
 
-    val questionNo: String = readLine()!!
+    private fun enterQuestionNo() {
+        println("\nEnter question number or [x] to exit this program:")
 
-    if (questionNo == "x")
-        return
+        if (questionNo.isEmpty()) questionNo = readLine()!!
 
-    if (questionNo.toIntOrNull() != null)
-        questions[questionNo.toInt() - 1].run()
-    else {
-        println("\nPlease enter valid question number!\n")
+        if (questionNo == "x")
+            return
+
+        if (questionNo.toIntOrNull() != null)
+            questions[questionNo.toInt() - 1].run()
+        else {
+            println("\nPlease enter valid question number!\n")
+        }
     }
 }
