@@ -1,6 +1,6 @@
 import com.google.gson.Gson
 
-abstract class Questions {
+abstract class Question {
     abstract val questionName: String
     open fun getInput() {
         println("\nInput :")

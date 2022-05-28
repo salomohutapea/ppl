@@ -1,8 +1,8 @@
 package questions
 
-import Questions
+import Question
 
-class MinMaxSum(private var arr: Array<Int> = arrayOf()) : Questions() {
+class MinMaxSum(private var arr: Array<Int> = arrayOf()) : Question() {
 
     override val questionName: String = "Min Max Sum"
 

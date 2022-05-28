@@ -1,9 +1,9 @@
 package questions
 
-import Questions
+import Question
 import kotlin.math.abs
 
-class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<Int>> = arrayOf()) : Questions() {
+class DiagonalDifference(private var n: Int = -1, private var arr: Array<Array<Int>> = arrayOf()) : Question() {
 
     override val questionName: String = "Diagonal Difference"
 

@@ -3,7 +3,7 @@ fun main() {
 }
 
 class Main(
-    private val questions: ArrayList<Questions> = QuestionsBank.questions,
+    private val questions: ArrayList<Question> = QuestionsBank.questions,
     private var questionNo: String = ""
 ) {
 
