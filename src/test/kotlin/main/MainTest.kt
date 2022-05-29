@@ -19,15 +19,15 @@ import java.util.stream.Stream
 internal class MainTest {
 
     companion object {
-        val mockApi = spyk(Api).apply {
-            every { this@apply.getEnabledQuestionsFromApi() } returns EnabledQuestions(
-                DIAGONAL_DIFFERENCE = true,
-                MIN_MAX_SUM = true
-            )
-        }
-
         @JvmStatic
         fun printListOfQuestions(): Stream<Arguments?>? {
+
+            val mockApi = spyk(Api).apply {
+                every { this@apply.getEnabledQuestionsFromApi() } returns EnabledQuestions(
+                    DIAGONAL_DIFFERENCE = true,
+                    MIN_MAX_SUM = true
+                )
+            }
 
             return Stream.of(
                 Arguments.of(
@@ -48,7 +48,7 @@ internal class MainTest {
                     "x", ""
                 ),
                 Arguments.of(
-                    "z", "API Not Found"
+                    "z", "Please enter valid question number!"
                 )
             )
         }
@@ -88,6 +88,12 @@ internal class MainTest {
     @ParameterizedTest
     @MethodSource
     fun validateQuestionNoInput(input: String, expected: String) {
+        val mockApi = spyk(Api).apply {
+            every { this@apply.getEnabledQuestionsFromApi() } returns EnabledQuestions(
+                DIAGONAL_DIFFERENCE = true,
+                MIN_MAX_SUM = true
+            )
+        }
         main = Main(QuestionsBank(mockApi))
         main.validateQuestionNoInput(input)
 
