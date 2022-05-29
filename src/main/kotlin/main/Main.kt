@@ -1,15 +1,13 @@
 package main
 
-import questions.Question
 import questions.QuestionsBank
 
 fun main() {
-
-    Main().init()
+    Main(QuestionsBank()).init()
 }
 
 class Main(
-    val questions: ArrayList<Question> = QuestionsBank.questions
+    val qb: QuestionsBank,
 ) {
     fun init() {
         printListOfQuestions()
@@ -17,10 +15,12 @@ class Main(
     }
 
     fun printListOfQuestions() {
-        println("List of Questions: ")
+        if (qb.questions.isNotEmpty()) {
+            println("List of Questions: ")
 
-        questions.forEachIndexed { i, q ->
-            println("[${i + 1}] ${q.questionName}")
+            qb.questions.forEachIndexed { i, q ->
+                println("[${i + 1}] ${q.questionName}")
+            }
         }
     }
 
@@ -33,13 +33,15 @@ class Main(
     }
 
     fun validateQuestionNoInput(questionNo: String) {
-        if (questionNo == "x")
-            return
+        if (qb.questions.isNotEmpty()) {
+            if (questionNo == "x")
+                return
 
-        if (questionNo.toIntOrNull() != null)
-            questions[questionNo.toInt() - 1].run()
-        else {
-            println("\nPlease enter valid question number!\n")
+            if (questionNo.toIntOrNull() != null)
+                qb.questions[questionNo.toInt() - 1].run()
+            else {
+                println("\nPlease enter valid question number!\n")
+            }
         }
     }
 }

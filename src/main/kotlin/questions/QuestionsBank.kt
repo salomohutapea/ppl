@@ -1,15 +1,15 @@
 package questions
 
 import api.Api
-import com.google.gson.Gson
 
-object QuestionsBank {
+class QuestionsBank(api: Api = Api) {
     var questions: ArrayList<Question> = arrayListOf()
 
     init {
-        val enabledQuestions = Api.getEnabledQuestions()
-        println(Gson().toJson(enabledQuestions))
-        if (enabledQuestions.DIAGONAL_DIFFERENCE) questions.add(DiagonalDifference())
-        if (enabledQuestions.MIN_MAX_SUM) questions.add(MinMaxSum())
+        val enabledQuestions = api.getEnabledQuestions()
+        enabledQuestions?.let {
+            if (it.DIAGONAL_DIFFERENCE) questions.add(DiagonalDifference())
+            if (it.MIN_MAX_SUM) questions.add(MinMaxSum())
+        }
     }
 }

@@ -1,13 +1,16 @@
 package main
 
-import io.mockk.*
+import api.Api
+import api.EnabledQuestions
+import io.mockk.clearAllMocks
+import io.mockk.every
+import io.mockk.spyk
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
-import questions.Question
 import questions.QuestionsBank
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
@@ -16,11 +19,22 @@ import java.util.stream.Stream
 internal class MainTest {
 
     companion object {
+        val mockApi = spyk(Api).apply {
+            every { this@apply.getEnabledQuestionsFromApi() } returns EnabledQuestions(
+                DIAGONAL_DIFFERENCE = true,
+                MIN_MAX_SUM = true
+            )
+        }
+
         @JvmStatic
         fun printListOfQuestions(): Stream<Arguments?>? {
+
             return Stream.of(
                 Arguments.of(
-                    QuestionsBank.questions, "List of Questions: \n" +
+                    QuestionsBank(), ""
+                ),
+                Arguments.of(
+                    QuestionsBank(mockApi), "List of Questions: \n" +
                             "[1] Diagonal Difference\n" +
                             "[2] Min Max Sum"
                 ),
@@ -34,7 +48,7 @@ internal class MainTest {
                     "x", ""
                 ),
                 Arguments.of(
-                    "z", "Please enter valid question number!"
+                    "z", "API Not Found"
                 )
             )
         }
@@ -58,11 +72,12 @@ internal class MainTest {
 
     @ParameterizedTest
     @MethodSource
-    fun printListOfQuestions(q: ArrayList<Question>, expected: String) {
-        main = Main(q)
+    fun printListOfQuestions(qb: QuestionsBank, expected: String) {
+
+        main = Main(qb)
         main.printListOfQuestions()
 
-        assertEquals(QuestionsBank.questions, main.questions)
+        assertEquals(qb.questions, main.qb.questions)
         assertEquals(
             expected,
             outputStreamCaptor.toString()
@@ -73,7 +88,7 @@ internal class MainTest {
     @ParameterizedTest
     @MethodSource
     fun validateQuestionNoInput(input: String, expected: String) {
-        main = Main()
+        main = Main(QuestionsBank(mockApi))
         main.validateQuestionNoInput(input)
 
         assertEquals(
