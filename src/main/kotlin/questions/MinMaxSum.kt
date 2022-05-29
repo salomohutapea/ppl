@@ -1,5 +1,6 @@
 package questions
 
+// Link: https://www.hackerrank.com/challenges/mini-max-sum/problem
 class MinMaxSum(
     private var arr: Array<Int> = arrayOf()
 ) : QuestionImpl() {

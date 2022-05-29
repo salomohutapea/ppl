@@ -2,6 +2,7 @@ package questions
 
 import kotlin.math.abs
 
+// Link: https://www.hackerrank.com/challenges/diagonal-difference/problem
 class DiagonalDifference(
     private var n: Int = -1,
     private var arr: Array<Array<Int>> = arrayOf()

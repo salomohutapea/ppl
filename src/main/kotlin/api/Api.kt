@@ -10,7 +10,7 @@ import java.net.http.HttpResponse
 object Api {
     private val client: HttpClient = HttpClient.newBuilder().build()
     private val request: HttpRequest = HttpRequest.newBuilder()
-        .uri(URI.create("http://localhost:2000")) // Run API first using 'Znpm run dev'
+        .uri(URI.create("http://localhost:2000")) // Run API first using 'npm run dev'
         .build()
 
     fun getEnabledQuestions(): EnabledQuestions? {
